@@ -1,11 +1,14 @@
-  <script>
-import headss from "./components/head/nav.vue";
+<script>
+// Importa os componentes Vue necessários
+import navegacao from "./components/head/nav.vue";
 import top from "./components/body/top.vue";
+
+
 
 export default {
   name: "App",
   components: {
-    headss,
+    navegacao,
     top,
   },
   data() {
@@ -16,43 +19,61 @@ export default {
     };
   },
   methods: {
+    // Método que altera o estilo do componente com base na propriedade 'display'
     alterarEstiloComponente() {
       console.log("teste");
-      if (this.estiloComponente.display === 'block') {
-        this.estiloComponente.display = 'none';
+      if (this.estiloComponente.display === "block") {
+        this.estiloComponente.display = "none";
+      } else {
+        this.estiloComponente.display = "block";
       }
-      else {
-        this.estiloComponente.display = 'block';        
-      }
-    }
+    },
   },
 };
 </script>
 
 <template>
   <div>
+    <!-- Renderiza o componente de navegação e emite um evento quando o estilo deve ser alterado -->
     <div>
-      <nav @alterar-estilo-componente="alterarEstiloComponente"/>
+      <navegacao @alterar-estilo-componente="alterarEstiloComponente" />
     </div>
+    <!-- Renderiza o componente 'top' passando a propriedade de estilo -->
     <div>
-      <top :estilo-componente="estiloComponente"/>
+      <top :estilo-componente="estiloComponente" />
     </div>
-    <div>
-    </div>
+    <!-- Uma div vazia -->
+    <div></div>
   </div>
 </template>
 
 <style>
+/* Estilos CSS para a aplicação Vue.js */
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
 
 .content {
   position: relative;
   z-index: -1;
 }
+.carousel-inner {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: -1;
+}
+
 .top {
   background: #000000;
 }
 
-header{
+header {
   width: 100vw !important;
   height: 100vh;
   margin-top: 0;
@@ -68,7 +89,7 @@ header{
   text-align: center;
   font-size: 30px;
   font-weight: 300;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   text-transform: uppercase;
   letter-spacing: 2px;
   color: #000000;
@@ -102,7 +123,7 @@ header{
   background-color: transparent;
   cursor: pointer;
   font-size: 10px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 300;
@@ -113,7 +134,7 @@ header{
 }
 
 .menu {
-width: 100%;
+  width: 100%;
 }
 
 .container {
@@ -124,7 +145,7 @@ width: 100%;
   background-color: #000000;
 }
 
-.search input{
+.search input {
   margin-right: 110px;
   width: 200px;
   height: 20px;
@@ -134,7 +155,7 @@ width: 100%;
   outline: none;
   color: #000000;
   font-size: 10px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 300;
@@ -158,11 +179,10 @@ width: 100%;
   outline: none;
   color: #a30505;
   font-size: 10px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 300;
   background-color: #ffffff;
 }
-
 </style>
