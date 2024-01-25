@@ -32,7 +32,7 @@ export default {
 <template>
   <div>
     <div>
-      <headss @alterar-estilo-componente="alterarEstiloComponente"/>
+      <nav @alterar-estilo-componente="alterarEstiloComponente"/>
     </div>
     <div>
       <top :estilo-componente="estiloComponente"/>
